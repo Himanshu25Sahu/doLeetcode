@@ -1,10 +1,10 @@
 class Solution {
 public:
     void inorder(TreeNode*root,vector<int>&ans){
-        if(root==NULL) return;
-        inorder(root->left,ans);
-        ans.push_back(root->val);
-        inorder(root->right,ans);
+        if(root==NULL) return;    //root returns to the leaf node when encountered with NULL.
+        inorder(root->left,ans);   //pass the left sub-tree of the root in the recursive function.
+        ans.push_back(root->val);  //pushing the val to "ans" as we don't want to operate on the copies of ans so we pass by reference.
+        inorder(root->right,ans);   //pass the right sub-tree of the root in the recursive function.
     }
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int>ans;
