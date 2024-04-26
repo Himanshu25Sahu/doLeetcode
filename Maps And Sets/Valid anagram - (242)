@@ -1,0 +1,37 @@
+ALGORITHM => 
+1) map the frequency of each element into map1
+2) travel in string t
+3) if an element is present in the map then decrease its frequency by 1
+4) also check if the frequency of that element has become 0, if it is then delete the element from map1
+5) else: if the element is not present in the map1 then the two string cannot be anagrams so return false
+6) at the end if size of the map is 0 that means all similar elements of s and t are deleted hence they are anagrams
+7) if not , they're not anagrams!
+
+
+
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+       unordered_map<char,int>map1;           //create a map
+       if(s.length()!=t.length()) return false;
+
+       for(int i=0;i<s.length();i++){         //map the frequency of each element into map1
+         map1[s[i]]++;
+       }
+       for(int i=0;i<t.length();i++){          
+
+        if(map1.find(t[i])!=map1.end()){
+        
+         map1[t[i]]--;
+         if(map1[t[i]]==0) map1.erase(t[i]);
+        }
+        else return false;
+       }
+
+       if(map1.size()!=0) return false;
+       else return true;
+    }
+};
+
+
