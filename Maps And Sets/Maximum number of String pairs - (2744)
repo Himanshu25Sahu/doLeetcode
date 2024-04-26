@@ -1,0 +1,20 @@
+//LINK : "https://leetcode.com/problems/find-maximum-number-of-string-pairs/"
+
+class Solution {
+public:
+    int maximumNumberOfStringPairs(vector<string>& words) {
+        unordered_set<string>s;
+        string rev;
+        int count=0;
+        for(int i=0;i<words.size();i++){
+            if(s.size()==0 || s.find(words[i])==s.end()){//if reverse of words[i] doesn't exist in set then insert it
+                reverse(words[i].begin(),words[i].end());
+                s.insert(words[i]);
+            }
+            else{
+                count++;
+            }
+        }
+        return count;
+    }
+};
