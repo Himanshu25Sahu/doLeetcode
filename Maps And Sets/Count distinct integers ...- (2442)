@@ -1,3 +1,6 @@
+//LINK: "https://leetcode.com/problems/count-number-of-distinct-integers-after-reverse-operations/"
+
+
 class Solution {
 public:
     //function to reverse the integer
